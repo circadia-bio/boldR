@@ -1,0 +1,24 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://boldr.circadia-lab.uk/404.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/LICENSE-text.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/LICENSE.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/articles/getting-started.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/articles/index.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/authors.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/index.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/news/index.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/boldR-package.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/compute_fc.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/compute_roi_metrics.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/compute_tsnr.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/export_bold.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/index.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/list_atlases.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/load_atlas.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/palette_bold.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/parcellate.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/prepare_bold.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/read_fmriprep.html</loc></url>
+<url><loc>https://boldr.circadia-lab.uk/reference/register_atlas.html</loc></url>
+</urlset>
+
