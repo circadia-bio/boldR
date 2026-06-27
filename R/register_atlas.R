@@ -47,7 +47,7 @@ register_atlas <- function(labels_img,
                             name  = "custom",
                             space = "MNI152NLin2009cAsym") {
 
-  # ── Load NIfTI if path given ───────────────────────────────────────────────
+  # -- Load NIfTI if path given -----------------------------------------------
   if (is.character(labels_img)) {
     if (!file.exists(labels_img)) {
       cli::cli_abort("Atlas label file not found: {.path {labels_img}}")
@@ -63,12 +63,12 @@ register_atlas <- function(labels_img,
     cli::cli_abort("Atlas label image must be 3D (got {length(dim(labels_img))}D).")
   }
 
-  # ── Validate metadata ──────────────────────────────────────────────────────
+  # -- Validate metadata -------------------------------------------------------
   required_cols <- c("label", "name")
   missing_cols  <- setdiff(required_cols, colnames(metadata))
   if (length(missing_cols) > 0) {
     cli::cli_abort(c(
-      "{.arg metadata} is missing required column{?s}.",
+      "{.arg metadata} is missing {length(missing_cols)} required column{?s}.",
       "x" = "Missing: {.val {missing_cols}}"
     ))
   }
@@ -77,12 +77,12 @@ register_atlas <- function(labels_img,
   unique_labels <- unique_labels[unique_labels != 0L]
   n_rois        <- length(unique_labels)
 
-  meta_labels <- sort(unique(as.integer(metadata[["label"]])))
+  meta_labels  <- sort(unique(as.integer(metadata[["label"]])))
   missing_meta <- setdiff(unique_labels, meta_labels)
   if (length(missing_meta) > 0) {
     cli::cli_warn(c(
       "{length(missing_meta)} label{?s} in the image have no metadata entry.",
-      "i" = "Missing label{?s}: {.val {head(missing_meta, 10)}}{?...}"
+      "i" = "Missing label{?s}: {.val {head(missing_meta, 10)}}"
     ))
   }
 

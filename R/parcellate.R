@@ -1,8 +1,8 @@
 #' Extract ROI-level timeseries from a BOLD image
 #'
 #' Applies a parcellation atlas to a preprocessed BOLD image, returning
-#' mean timeseries per ROI. Works with any `boldR_atlas` object — built-in
-#' or custom — as long as the atlas is in the same template space as the BOLD.
+#' mean timeseries per ROI. Works with any `boldR_atlas` object -- built-in
+#' or custom -- as long as the atlas is in the same template space as the BOLD.
 #'
 #' @param bold A `boldR_bold` object from [boldR::prepare_bold()].
 #' @param atlas A `boldR_atlas` object from [boldR::load_atlas()].
@@ -14,7 +14,7 @@
 #'
 #' @return A list of class `boldR_parcellated` with components:
 #' \describe{
-#'   \item{timeseries}{Numeric matrix, timepoints × ROIs. Column names are ROI
+#'   \item{timeseries}{Numeric matrix, timepoints x ROIs. Column names are ROI
 #'     labels from the atlas.}
 #'   \item{roi_voxel_counts}{Integer vector. Number of in-mask voxels per ROI.}
 #'   \item{atlas}{The `boldR_atlas` object used.}
@@ -31,7 +31,7 @@
 #' bold   <- prepare_bold(fprep, tr = 2, drop_volumes = 4)
 #' atlas  <- load_atlas("schaefer100_7n")
 #' parcel <- parcellate(bold, atlas)
-#' dim(parcel$timeseries)  # timepoints × 100
+#' dim(parcel$timeseries)  # timepoints x 100
 #' }
 parcellate <- function(bold,
                        atlas,
@@ -55,8 +55,8 @@ parcellate <- function(bold,
   atlas_dims <- dim(atlas_img)[1:3]
   if (!identical(bold_dims, atlas_dims)) {
     cli::cli_abort(
-      "Spatial dimensions of BOLD ({paste(bold_dims, collapse='x')}) and
-       atlas ({paste(atlas_dims, collapse='x')}) do not match.
+      "Spatial dimensions of BOLD ({paste(bold_dims, collapse = 'x')}) and
+       atlas ({paste(atlas_dims, collapse = 'x')}) do not match.
        Resample the atlas to match the BOLD resolution."
     )
   }
@@ -65,7 +65,7 @@ parcellate <- function(bold,
   mask_img  <- RNifti::readNifti(bold$fmriprep$bold_mask)
   mask_flat <- as.logical(as.array(mask_img))
 
-  # Convert to matrix: voxels × timepoints (drop first N volumes)
+  # Convert to matrix: voxels x timepoints (drop first N volumes)
   start_vol <- bold$drop_volumes + 1L
   n_t       <- bold$n_timepoints
   bold_arr  <- as.array(bold_img)
@@ -75,15 +75,15 @@ parcellate <- function(bold,
   atlas_flat <- as.integer(as.array(atlas_img))
 
   # Extract timeseries per ROI
-  n_rois <- atlas$n_rois
-  ts_mat <- matrix(NA_real_, nrow = n_t, ncol = n_rois)
+  n_rois     <- atlas$n_rois
+  ts_mat     <- matrix(NA_real_, nrow = n_t, ncol = n_rois)
   colnames(ts_mat) <- atlas$labels
   vox_counts <- integer(n_rois)
 
   for (i in seq_len(n_rois)) {
-    roi_idx   <- atlas_flat == atlas$indices[i] & mask_flat
-    n_vox     <- sum(roi_idx)
-    vox_counts[i] <- n_vox
+    roi_idx        <- atlas_flat == atlas$indices[i] & mask_flat
+    n_vox          <- sum(roi_idx)
+    vox_counts[i]  <- n_vox
 
     if (n_vox < min_voxels) {
       cli::cli_alert_warning(
@@ -96,17 +96,17 @@ parcellate <- function(bold,
   }
 
   cli::cli_alert_success(
-    "Parcellation complete: {n_rois} ROIs × {n_t} timepoints."
+    "Parcellation complete: {n_rois} ROIs x {n_t} timepoints."
   )
 
   structure(
     list(
-      timeseries      = ts_mat,
+      timeseries       = ts_mat,
       roi_voxel_counts = vox_counts,
-      atlas           = atlas,
-      bold            = bold,
-      n_rois          = n_rois,
-      n_timepoints    = n_t
+      atlas            = atlas,
+      bold             = bold,
+      n_rois           = n_rois,
+      n_timepoints     = n_t
     ),
     class = "boldR_parcellated"
   )

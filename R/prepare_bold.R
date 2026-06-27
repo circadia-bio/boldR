@@ -44,7 +44,7 @@ prepare_bold <- function(fmriprep, tr = NULL, drop_volumes = 0L) {
   }
 
   cli::cli_alert_info("Reading BOLD header...")
-  hdr <- RNifti::niftiHeader(fmriprep$bold)
+  hdr  <- RNifti::niftiHeader(fmriprep$bold)
   dims <- hdr$dim[2:5]  # [x, y, z, t]
 
   if (is.null(tr)) {
@@ -66,16 +66,16 @@ prepare_bold <- function(fmriprep, tr = NULL, drop_volumes = 0L) {
   }
 
   cli::cli_alert_success(
-    "BOLD prepared: {dims[1]}×{dims[2]}×{dims[3]} voxels, \\
+    "BOLD prepared: {dims[1]}x{dims[2]}x{dims[3]} voxels, \\
      {n_timepoints} timepoints, TR = {tr}s."
   )
 
   structure(
     list(
-      fmriprep    = fmriprep,
-      dims        = dims,
-      tr          = tr,
-      n_voxels    = NA_integer_,   # populated after mask application
+      fmriprep     = fmriprep,
+      dims         = dims,
+      tr           = tr,
+      n_voxels     = NA_integer_,   # populated after mask application
       n_timepoints = n_timepoints,
       drop_volumes = as.integer(drop_volumes)
     ),
@@ -88,7 +88,7 @@ print.boldR_bold <- function(x, ...) {
   cli::cli_h1("boldR BOLD object")
   cli::cli_inform(c(
     "i" = "Subject:     {x$fmriprep$subject}",
-    "i" = "Dimensions:  {x$dims[1]}×{x$dims[2]}×{x$dims[3]}",
+    "i" = "Dimensions:  {x$dims[1]}x{x$dims[2]}x{x$dims[3]}",
     "i" = "Timepoints:  {x$n_timepoints}  (dropped: {x$drop_volumes})",
     "i" = "TR:          {x$tr}s"
   ))

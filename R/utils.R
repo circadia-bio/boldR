@@ -17,8 +17,15 @@
     )
 }
 
-# boldR palette
-.bold_palette <- c(
+#' boldR colour palette
+#'
+#' A named character vector of the eight colours used throughout the boldR
+#' package and its pkgdown site.
+#'
+#' @format A named character vector of length 8.
+#'
+#' @export
+palette_bold <- c(
   indigo = "#1B1035",
   rose   = "#C23661",
   steel  = "#3D6FA8",

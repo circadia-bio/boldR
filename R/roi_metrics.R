@@ -1,6 +1,6 @@
 #' Compute functional connectivity matrix
 #'
-#' Computes a ROI × ROI functional connectivity (FC) matrix from parcellated
+#' Computes a ROI x ROI functional connectivity (FC) matrix from parcellated
 #' BOLD timeseries using Pearson correlation. Returns both the full correlation
 #' matrix and its Fisher z-transformed version.
 #'
@@ -12,7 +12,7 @@
 #'
 #' @return A list of class `boldR_fc` with components:
 #' \describe{
-#'   \item{r}{Numeric matrix. Pearson r correlation matrix (ROIs × ROIs).}
+#'   \item{r}{Numeric matrix. Pearson r correlation matrix (ROIs x ROIs).}
 #'   \item{z}{Numeric matrix. Fisher z-transformed FC matrix.}
 #'   \item{labels}{Character vector. ROI labels.}
 #'   \item{n_rois}{Integer.}
@@ -25,7 +25,7 @@
 #' \dontrun{
 #' parcel <- parcellate(bold, atlas)
 #' fc     <- compute_fc(parcel)
-#' dim(fc$r)  # 100 × 100 for Schaefer-100
+#' dim(fc$r)  # 100 x 100 for Schaefer-100
 #' }
 compute_fc <- function(parcellated,
                        method = "pearson",
@@ -77,13 +77,15 @@ compute_roi_metrics <- function(parcellated) {
     )
   }
 
-  ts <- parcellated$timeseries
+  ts       <- parcellated$timeseries
+  roi_mean <- apply(ts, 2, mean,       na.rm = TRUE)
+  roi_sd   <- apply(ts, 2, stats::sd,  na.rm = TRUE)
 
   tibble::tibble(
     roi      = parcellated$atlas$labels,
-    mean     = apply(ts, 2, mean,        na.rm = TRUE),
-    sd       = apply(ts, 2, stats::sd,   na.rm = TRUE),
-    tsnr     = mean / sd,
+    mean     = roi_mean,
+    sd       = roi_sd,
+    tsnr     = roi_mean / roi_sd,
     n_voxels = parcellated$roi_voxel_counts
   )
 }
