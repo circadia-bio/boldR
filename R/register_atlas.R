@@ -68,7 +68,7 @@ register_atlas <- function(labels_img,
   missing_cols  <- setdiff(required_cols, colnames(metadata))
   if (length(missing_cols) > 0) {
     cli::cli_abort(c(
-      "{.arg metadata} is missing {length(missing_cols)} required column{?s}.",
+      "{.arg metadata} is missing required columns.",
       "x" = "Missing: {.val {missing_cols}}"
     ))
   }
