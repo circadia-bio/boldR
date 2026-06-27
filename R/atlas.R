@@ -1,7 +1,7 @@
 #' List available built-in atlases
 #'
 #' Returns a data frame describing the atlases bundled with `boldR`.
-#' Custom atlases can be loaded via [load_atlas()].
+#' Custom atlases can be loaded via [boldR::load_atlas()].
 #'
 #' @return A tibble with columns `name`, `n_rois`, `space`, and `description`.
 #'
@@ -25,7 +25,7 @@ list_atlases <- function() {
 #' a custom NIfTI label map. The `boldR_atlas` schema is the extension point
 #' for user-defined parcellations.
 #'
-#' @param atlas Character. Name of a built-in atlas (see [list_atlases()]) or
+#' @param atlas Character. Name of a built-in atlas (see [boldR::list_atlases()]) or
 #'   a path to a custom NIfTI label image.
 #' @param labels Character vector or `NULL`. ROI labels, one per integer value
 #'   in the atlas image (excluding 0). If `NULL` and `atlas` is a built-in,

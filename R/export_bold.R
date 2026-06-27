@@ -1,13 +1,13 @@
 #' Export parcellated BOLD data for syncR
 #'
-#' Packages the output of [parcellate()] into a `boldR_export` object
+#' Packages the output of [boldR::parcellate()] into a `boldR_export` object
 #' suitable for ingestion by `syncR::sync()`. The export includes the ROI
 #' timeseries matrix, functional connectivity matrix (if computed), ROI
 #' metrics, and participant metadata.
 #'
-#' @param parcellated A `boldR_parcellated` object from [parcellate()].
-#' @param fc A `boldR_fc` object from [compute_fc()], or `NULL` (default).
-#' @param roi_metrics A tibble from [compute_roi_metrics()], or `NULL`
+#' @param parcellated A `boldR_parcellated` object from [boldR::parcellate()].
+#' @param fc A `boldR_fc` object from [boldR::compute_fc()], or `NULL` (default).
+#' @param roi_metrics A tibble from [boldR::compute_roi_metrics()], or `NULL`
 #'   (default). If `NULL`, metrics are computed automatically.
 #' @param participant_id Character or `NULL`. Override the subject label for
 #'   use in `syncR`. If `NULL`, taken from the `boldR_bold` object.

@@ -3,7 +3,7 @@
 #' Validates and registers a NIfTI label map and optional metadata table as a
 #' `boldR_atlas` object. The schema is intentionally minimal: any parcellation
 #' that provides a 3D integer label image and a label-to-name mapping can be
-#' registered and passed to [parcellate()]. Bundled atlas helpers (Schaefer,
+#' registered and passed to [boldR::parcellate()]. Bundled atlas helpers (Schaefer,
 #' AAL, Glasser) use this same interface.
 #'
 #' @param labels_img A `niftiImage` (3D integer) or a file path to a NIfTI
@@ -19,7 +19,7 @@
 #'   (e.g. `"Schaefer200"`, `"AAL3"`, `"custom"`).
 #' @param space Character. The standard space this atlas is defined in.
 #'   Default `"MNI152NLin2009cAsym"`. Must match the space used in
-#'   [read_fmriprep()] / [parcellate()].
+#'   [boldR::read_fmriprep()] / [boldR::parcellate()].
 #'
 #' @return A list of class `boldR_atlas` with components:
 #' \describe{

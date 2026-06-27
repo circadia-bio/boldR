@@ -5,7 +5,7 @@
 #' A standard quality metric for assessing fMRI data quality after
 #' preprocessing.
 #'
-#' @param bold A `boldR_bold` object from [prepare_bold()].
+#' @param bold A `boldR_bold` object from [boldR::prepare_bold()].
 #'
 #' @return A list of class `boldR_tsnr` with components:
 #' \describe{

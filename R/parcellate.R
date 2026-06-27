@@ -4,8 +4,8 @@
 #' mean timeseries per ROI. Works with any `boldR_atlas` object — built-in
 #' or custom — as long as the atlas is in the same template space as the BOLD.
 #'
-#' @param bold A `boldR_bold` object from [prepare_bold()].
-#' @param atlas A `boldR_atlas` object from [load_atlas()].
+#' @param bold A `boldR_bold` object from [boldR::prepare_bold()].
+#' @param atlas A `boldR_atlas` object from [boldR::load_atlas()].
 #' @param summary_fn Function. Applied across voxels within each ROI at each
 #'   timepoint. Default `mean`. Common alternatives: `median`.
 #' @param min_voxels Integer. Minimum number of in-mask voxels an ROI must

@@ -4,7 +4,7 @@
 #' TR, and returns an annotated `boldR_bold` object ready for downstream
 #' analysis functions.
 #'
-#' @param fmriprep A `boldR_fmriprep` object from [read_fmriprep()].
+#' @param fmriprep A `boldR_fmriprep` object from [boldR::read_fmriprep()].
 #' @param tr Numeric or `NULL`. Repetition time in seconds. If `NULL`
 #'   (default), extracted from the BOLD NIfTI header.
 #' @param drop_volumes Integer. Number of initial volumes to discard (dummy

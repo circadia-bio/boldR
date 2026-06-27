@@ -4,7 +4,7 @@
 #' BOLD timeseries using Pearson correlation. Returns both the full correlation
 #' matrix and its Fisher z-transformed version.
 #'
-#' @param parcellated A `boldR_parcellated` object from [parcellate()].
+#' @param parcellated A `boldR_parcellated` object from [boldR::parcellate()].
 #' @param method Character. Correlation method passed to `cor()`.
 #'   Default `"pearson"`.
 #' @param use Character. Handling of missing values, passed to `cor()`.
@@ -58,7 +58,7 @@ compute_fc <- function(parcellated,
 #' Returns a tibble of per-ROI summary statistics from the parcellated
 #' timeseries: mean signal, standard deviation, and temporal SNR.
 #'
-#' @param parcellated A `boldR_parcellated` object from [parcellate()].
+#' @param parcellated A `boldR_parcellated` object from [boldR::parcellate()].
 #'
 #' @return A tibble with columns `roi`, `mean`, `sd`, `tsnr`, `n_voxels`.
 #'
