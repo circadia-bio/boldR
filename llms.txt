@@ -1,4 +1,4 @@
-# boldR
+# 🧠 boldR
 
 > **fmriprep gets you clean data. boldR gets you useful data.**
 
