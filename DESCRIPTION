@@ -1,0 +1,46 @@
+Package: boldR
+Title: fMRI BOLD Signal Analysis for Circadian and Sleep Research
+Version: 0.1.0
+Authors@R: c(
+    person("Lucas", "França",
+           email = "lucas.franca@northumbria.ac.uk",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-0853-1319")),
+    person("Mario", "Leocadio-Miguel",
+           email = "mario.miguel@northumbria.ac.uk",
+           role = "aut",
+           comment = c(ORCID = "0000-0002-7248-3529"))
+  )
+Description: Analysis of Blood-Oxygen-Level-Dependent (BOLD) fMRI data for
+    sleep and circadian research. Receives preprocessed derivatives from
+    fMRIPrep and transforms them into analysis-ready outputs: atlas-agnostic
+    parcellation with an extensible atlas schema, ROI-level timeseries
+    extraction, voxelwise signal metrics (tSNR, GLM contrasts), and
+    functional connectivity matrices. Exports parcellated BOLD data directly
+    to syncR for integration with actigraphy, polysomnography, and
+    questionnaire data in a unified participant-indexed database. Part of
+    the Circadia Lab R ecosystem at Northumbria University.
+    fmriprep gets you clean data. boldR gets you useful data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+VignetteBuilder: knitr
+Depends:
+    R (>= 4.1.0)
+Imports:
+    RNifti (>= 1.5.0),
+    cli (>= 3.6.0),
+    dplyr (>= 1.1.0),
+    tibble (>= 3.2.0),
+    rlang (>= 1.1.0)
+Suggests:
+    ggplot2 (>= 3.4.0),
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    pkgdown,
+    withr
+Config/testthat/edition: 3
+URL: https://boldr.circadia-lab.uk, https://github.com/circadia-bio/boldR
+BugReports: https://github.com/circadia-bio/boldR/issues

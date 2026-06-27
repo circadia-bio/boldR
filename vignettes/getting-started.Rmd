@@ -1,0 +1,128 @@
+---
+title: "Getting started with boldR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with boldR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  eval     = FALSE
+)
+```
+
+> **fmriprep gets you clean data. boldR gets you useful data.**
+
+`boldR` picks up exactly where [fMRIPrep](https://fmriprep.org) leaves off.
+It reads preprocessed BIDS derivatives and transforms them into analysis-ready
+outputs: ROI timeseries, functional connectivity matrices, and voxelwise
+quality metrics — all exportable to `syncR` for integration with sleep and
+circadian data.
+
+---
+
+## Installation
+
+```{r install}
+# install.packages("pak")
+pak::pak("circadia-bio/boldR")
+```
+
+---
+
+## Basic workflow
+
+### 1. Read fMRIPrep derivatives
+
+```{r read}
+library(boldR)
+
+fprep <- read_fmriprep(
+  derivatives_dir = "data/derivatives/fmriprep",
+  subject         = "01",
+  task            = "rest",
+  space           = "MNI152NLin2009cAsym"
+)
+fprep
+```
+
+### 2. Prepare the BOLD object
+
+```{r prepare}
+bold <- prepare_bold(
+  fmriprep    = fprep,
+  tr          = 2,      # seconds; or NULL to read from NIfTI header
+  drop_volumes = 4      # discard first 4 dummy scans
+)
+bold
+```
+
+### 3. Load an atlas and parcellate
+
+`boldR` ships with several built-in atlases and accepts any custom NIfTI
+label image via the `boldR_atlas` schema.
+
+```{r atlas}
+# See available built-ins
+list_atlases()
+
+# Load Schaefer 100-parcel atlas
+atlas <- load_atlas("schaefer100_7n")
+
+# Extract mean timeseries per ROI
+parcel <- parcellate(bold, atlas)
+dim(parcel$timeseries)  # timepoints × 100
+```
+
+#### Custom atlas
+
+```{r custom-atlas}
+custom <- load_atlas(
+  atlas  = "my_parcellation.nii.gz",
+  labels = paste0("Region_", 1:80),
+  space  = "MNI152NLin2009cAsym"
+)
+parcel_custom <- parcellate(bold, custom)
+```
+
+### 4. Compute metrics
+
+```{r metrics}
+# Functional connectivity matrix (Fisher z)
+fc <- compute_fc(parcel)
+dim(fc$z)  # 100 × 100
+
+# ROI summary statistics
+roi_stats <- compute_roi_metrics(parcel)
+roi_stats
+
+# Voxelwise temporal SNR
+tsnr <- compute_tsnr(bold)
+tsnr$median_tsnr
+```
+
+### 5. Export for syncR
+
+```{r export}
+bold_export <- export_bold(parcel, fc = fc)
+bold_export
+
+# In your syncR pipeline:
+# syncR::sync(
+#   zeitR    = actigraphy_metrics,
+#   slumbR   = sleep_diary,
+#   tallieR  = questionnaires,
+#   bold     = bold_export
+# )
+```
+
+---
+
+## Ecosystem
+
+`boldR` is part of the Circadia Lab R ecosystem. See
+[circadia-lab.uk](https://circadia-lab.uk) for the full package suite.
