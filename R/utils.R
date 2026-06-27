@@ -17,14 +17,14 @@
     )
 }
 
-# Activation-inspired palette for boldR plots
+# boldR palette
 .bold_palette <- c(
-  indigo  = "#1B1035",
-  rose    = "#C23661",
-  steel   = "#3D6FA8",
-  amber   = "#E8803E",
-  cloud   = "#F2EEF9",
-  mist    = "#E8E4F0",
-  teal    = "#4A9BBF",
-  cream   = "#FFF8F0"
+  indigo = "#1B1035",
+  rose   = "#C23661",
+  steel  = "#3D6FA8",
+  amber  = "#E8803E",
+  pearl  = "#EDEAF6",
+  mist   = "#E8E4F0",
+  teal   = "#4A9BBF",
+  slate  = "#B8B2CC"
 )

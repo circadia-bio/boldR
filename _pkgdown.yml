@@ -3,10 +3,10 @@ url: https://boldr.circadia-lab.uk
 template:
   bootstrap: 5
   bslib:
-    # ── Colours (deep indigo + BOLD activation palette) ───────────────────────
-    # indigo  #1B1035  | rose    #C23661  | steel   #3D6FA8
-    # amber   #E8803E  | cloud   #F2EEF9  | mist    #E8E4F0
-    bg:              "#F2EEF9"
+    # ── Colours ───────────────────────────────────────────────────────────────
+    # indigo  #1B1035  | rose   #C23661  | steel  #3D6FA8  | amber  #E8803E
+    # pearl   #EDEAF6  | mist   #E8E4F0  | teal   #4A9BBF  | slate  #B8B2CC
+    bg:              "#EDEAF6"
     fg:              "#1B1035"
     primary:         "#C23661"
     secondary:       "#3D6FA8"
@@ -25,13 +25,13 @@ template:
     headings-font-weight: 700
 
     # ── Cards / surfaces ───────────────────────────────────────────────────────
-    card-bg:              "#FDFBFF"
-    card-border-color:    "#D8D0EA"
+    card-bg:              "#F5F3FB"
+    card-border-color:    "#B8B2CC"
     card-border-radius:   "0.75rem"
 
     # ── Code blocks ────────────────────────────────────────────────────────────
     pre-bg:    "#1B1035"
-    pre-color: "#F2EEF9"
+    pre-color: "#EDEAF6"
 
   includes:
     in_header: |
@@ -54,14 +54,14 @@ template:
         .navbar-nav .nav-link,
         .navbar-nav .nav-link:hover,
         .navbar form .btn {
-          color: #F2EEF9 !important;
+          color: #EDEAF6 !important;
         }
         .navbar-nav .nav-link:hover { opacity: 0.85; }
         .navbar-nav .nav-link.active {
-          color: #F2EEF9 !important;
+          color: #EDEAF6 !important;
           border-bottom: 2px solid #C23661;
         }
-        .navbar small.nav-text { color: #F2EEF9 !important; opacity: 0.75; }
+        .navbar small.nav-text { color: #EDEAF6 !important; opacity: 0.75; }
 
         /* ── Navbar logo size ── */
         .navbar-brand img { height: 40px; width: auto; }
@@ -92,7 +92,7 @@ template:
         .text-muted { color: #5A4F70 !important; }
 
         /* ── Sidebar border ── */
-        .sidebar { border-left: 3px solid #E8803E; padding-left: 1rem; }
+        .sidebar { border-left: 3px solid #B8B2CC; padding-left: 1rem; }
 
         /* ── Reference index section headers ── */
         .reference-index h2 {
@@ -105,7 +105,7 @@ template:
         /* ── Inline code ── */
         code {
           color: #C23661;
-          background: #EDE8F5;
+          background: #E8E4F0;
           border-radius: 4px;
           padding: 0.1em 0.35em;
         }
@@ -115,18 +115,18 @@ template:
         a:hover { color: #3D6FA8; }
 
         /* ── Footer ── */
-        .footer { background: #1B1035; color: #F2EEF9; padding: 1.5rem 0; }
-        .footer a { color: #F2EEF9; opacity: 0.85; }
+        .footer { background: #1B1035; color: #EDEAF6; padding: 1.5rem 0; }
+        .footer a { color: #EDEAF6; opacity: 0.85; }
         .footer a:hover { opacity: 1; }
 
         /* ── Search ── */
-        #search-input { border-color: #E8803E; }
+        #search-input { border-color: #B8B2CC; }
 
         /* ── Buttons ── */
         .btn-primary {
           background-color: #C23661 !important;
           border-color: #C23661 !important;
-          color: #F2EEF9 !important;
+          color: #EDEAF6 !important;
         }
         .btn-primary:hover {
           background-color: #3D6FA8 !important;
