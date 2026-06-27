@@ -1,4 +1,4 @@
-# boldR <img src="man/figures/logo.svg" align="right" height="139"/>
+# 🧠 boldR <img src="man/figures/logo.svg" align="right" height="139"/>
 
 <!-- badges: start -->
 [![R CMD CHECK](https://github.com/circadia-bio/boldR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/circadia-bio/boldR/actions/workflows/R-CMD-check.yaml)
