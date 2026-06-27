@@ -178,10 +178,11 @@ reference:
       - prepare_bold
 
   - title: "Atlases"
-    desc: "Atlas-agnostic parcellation schema and built-in atlases."
+    desc: "Atlas-agnostic parcellation schema, built-in atlases, and custom registration."
     contents:
       - load_atlas
       - list_atlases
+      - register_atlas
 
   - title: "Parcellation"
     desc: "Extract ROI-level timeseries from volumetric BOLD data."
@@ -203,6 +204,11 @@ reference:
     desc: "Export analysis-ready outputs for syncR."
     contents:
       - export_bold
+
+  - title: "Data"
+    desc: "Bundled datasets and palettes."
+    contents:
+      - palette_bold
 
   - title: "Package"
     desc: "Package-level documentation."
