@@ -1,11 +1,17 @@
 # 🧠 boldR <img src="man/figures/logo.svg" align="right" height="139"/>
 
+> **fmriprep gets you clean data. boldR gets you useful data.**
+
 <!-- badges: start -->
 [![R CMD CHECK](https://github.com/circadia-bio/boldR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/circadia-bio/boldR/actions/workflows/R-CMD-check.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
-> **fmriprep gets you clean data. boldR gets you useful data.**
+---
+
+> ⚠️ **boldR is in early development and has not been formally tested.** The API may change without notice, estimation results have not yet been validated against a reference implementation, and the package has not undergone peer review. Use with caution and verify outputs independently before using in any research context.
+
+---
 
 `boldR` is an R package for analysing Blood-Oxygen-Level-Dependent (BOLD)
 fMRI data in the context of sleep and circadian research. It picks up exactly
