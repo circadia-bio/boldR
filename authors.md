@@ -11,7 +11,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/circadia-bio/boldR/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/circadia-bio/boldR/blob/v0.1.0/DESCRIPTION)
 
 França L, Leocadio-Miguel M (2026). *boldR: fMRI BOLD Signal Analysis
 for Circadian and Sleep Research*. R package version 0.1.0,
