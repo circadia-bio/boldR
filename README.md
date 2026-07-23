@@ -1,4 +1,4 @@
-# 🧠 boldR <img src="man/figures/logo.svg" align="right" height="139"/>
+# 🧲 boldR <img src="man/figures/logo.svg" align="right" height="139"/>
 
 > **fmriprep gets you clean data. boldR gets you useful data.**
 
